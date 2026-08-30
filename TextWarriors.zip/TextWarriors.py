@@ -6,7 +6,7 @@ import json
 import requests
 import re
 
-player_stats = {"health": 100.0, "stamina": 100.0, "min_damage": 5, "max_damage": 7, "xp": 0, "ready": False, "difficulty": "unset", "dev_logs": False, "in_game": False, "inventory": {"healing_potion": 2, "stamina_potion": 1, "super_healing_potion": 0}}
+player_stats = {"used_cheats": False, "health": 100.0, "stamina": 100.0, "min_damage": 5, "max_damage": 7, "xp": 0, "ready": False, "difficulty": "unset", "dev_logs": False, "in_game": False, "inventory": {"healing_potion": 2, "stamina_potion": 1, "super_healing_potion": 0}}
 enemy_stats = {"health": 0.0, "damage": 0.0, "stamina": 0.0}
 BANNED_WORDS = ["admin", "dev", "mod", "fuck", "shit", "bitch", "asshole", "nigger", "cunt"]
 
@@ -89,7 +89,10 @@ def open_shop():
             else:
                 print("Not enough XP!")
     elif choise == "c":
-        if player_stats["xp"] >= 100:
+        if player_stats.get("used_cheats", False):
+            print("Notice: Online submissions are disabled because Dev Tools / Cheats were used in this run!")
+
+        elif player_stats["xp"] >= 100:
             player_stats["xp"] -= 100
             raw_name = input("What is your name: ")
             validate_player_name(raw_name)
@@ -229,7 +232,8 @@ def confirmstart(confirm_start):
         os.system("kill -9 $PPID")
 
     elif confirm_start.rstrip() == "Dev_Tools":
-
+        player_stats["used_cheats"] = True
+        save_game(player_stats)
         print("Welcome to Dev Tools. This allows you to customise your health, damage or stamina.")
         item_choise = input("What would you like to edit?: ")
         if item_choise.lower() == "health" or item_choise.lower() == "hp":
