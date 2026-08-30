@@ -1,0 +1,25 @@
+========================================
+             TEXT WARRIORS              
+========================================
+
+HOW TO PLAY:
+
+1. Make sure Python 3 is installed on your computer.
+2. Open your Terminal Linux/Mac or Command Prompt Windows.
+3. Install the required requests library:
+   pip install requests
+
+4. Run the game:
+   python TextWarriors.py   (Windows)
+   python3 TextWarriors.py  (Linux / Mac)
+
+
+Though the game is not much, feel free to do whatever you like with it.
+
+If you want to be a loser, you can type "Dev_Tools" EXACTLY when it askes if your are ready. This allows you to cheat by changing your stats. (Using cheats disables sending your completion, though some loser will probably bypass it.)
+
+check the HOF here: https://docs.google.com/spreadsheets/d/1OmC5sg7iSknCpfeuy7AyQN-JkGv2B1DpHfSf_W0s4U4/edit?usp=sharing
+
+
+Enjoy the game and claim your spot in the Online Hall of Fame!
+
